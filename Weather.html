@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AgroFarm - Your trusted agribusiness marketplace">
+    <title>AgroFarm | Agribusiness Marketplace</title>
+
+    <link rel="stylesheet" href="Weather.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="container nav-container">
+
+            <a href="#" class="logo">
+                <span class="logo-icon">🌱</span>
+                Agro<span>Farm</span>
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="Marketplace.html">Marketplace</a>
+                <a href="Feed.html">Feeds</a>
+                <a href="Livestock.html">Livestock</a>
+                <a href="Weather.html">Weather</a>
+                <a href="Contact.html">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- AgroFarm Branding -->
+        <div class="brand">
+
+            <h1>🌱 AgroFarm</h1>
+
+            <p>
+                Smart Agricultural Weather Information
+            </p>
+
+        </div>
+
+
+        <!-- Main Weather Card -->
+        <div class="weather-card">
+
+            <!-- Back to Weather/Home -->
+            <a
+                href="index.html"
+                class="back-weather"
+            >
+                ← Weather
+            </a>
+
+
+            <!-- Page Heading -->
+            <h2>
+                🌦️ Crop Weather Information
+            </h2>
+
+
+            <!-- Definition -->
+            <p class="definition">
+
+                <strong>Crop Weather Information/Condition</strong>
+                refers to weather and environmental information that
+                helps farmers understand how climatic conditions can
+                affect the growth, development, and productivity of
+                different crops. It includes factors such as
+                temperature, rainfall, humidity, sunlight, soil
+                moisture, and the length of the growing season.
+                Understanding these conditions helps farmers choose
+                suitable crops, determine appropriate planting periods,
+                and make better agricultural decisions.
+
+            </p>
+
+
+            <!-- Search Information -->
+            <div class="search-info">
+
+                <h3>
+                    🔎 What Should You Search?
+                </h3>
+
+                <p>
+
+                    Search for the name of a crop to discover the
+                    <strong>best Nigerian states</strong> where it can
+                    be cultivated, together with its preferred weather
+                    conditions, temperature, rainfall requirements,
+                    humidity, soil conditions, and growing season.
+                    For example, search for
+                    <strong>Maize</strong>, <strong>Rice</strong>,
+                    <strong>Tomato</strong>, or
+                    <strong>Cassava</strong>.
+
+                </p>
+
+            </div>
+
+
+            <!-- Search -->
+            <div class="search-area">
+
+                <input
+                    type="text"
+                    id="cropSearch"
+                    class="search-input"
+                    placeholder="Enter crop name (e.g. Maize)"
+                    autocomplete="off"
+                >
+
+                <button
+                    class="search-button"
+                    onclick="searchCrop()"
+                >
+                    🔍 Search
+                </button>
+
+            </div>
+
+
+            <!-- Error -->
+            <div
+                id="errorMessage"
+                class="error-message"
+            >
+                Crop information not found. Please try another crop.
+            </div>
+
+
+            <!-- =========================
+                 RESULTS
+            ========================== -->
+
+            <div
+                id="results"
+                class="results"
+            >
+
+                <div class="result-heading">
+
+                    <h3 id="cropName">
+                        Maize
+                    </h3>
+
+                    <p>
+                        Recommended agricultural weather information
+                    </p>
+
+                </div>
+
+
+                <!-- Information -->
+                <div class="info-grid">
+
+                    <!-- Temperature -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            🌡️
+                        </div>
+
+                        <h4>
+                            Temperature
+                        </h4>
+
+                        <p id="temperature">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Rainfall -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            🌧️
+                        </div>
+
+                        <h4>
+                            Rainfall
+                        </h4>
+
+                        <p id="rainfall">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Humidity -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            💧
+                        </div>
+
+                        <h4>
+                            Humidity
+                        </h4>
+
+                        <p id="humidity">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Sunlight -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            ☀️
+                        </div>
+
+                        <h4>
+                            Sunlight
+                        </h4>
+
+                        <p id="sunlight">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Soil -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            🌱
+                        </div>
+
+                        <h4>
+                            Soil Condition
+                        </h4>
+
+                        <p id="soil">
+                        </p>
+
+                    </div>
+
+
+                    <!-- Growing Season -->
+                    <div class="info-box">
+
+                        <div class="icon">
+                            📅
+                        </div>
+
+                        <h4>
+                            Growing Season
+                        </h4>
+
+                        <p id="season">
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Best States -->
+                <div class="states-section">
+
+                    <h3>
+                        📍 Best Nigerian States
+                    </h3>
+
+                    <div
+                        id="states"
+                        class="states"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- Farming Advice -->
+                <div class="advice">
+
+                    <h3>
+                        👨‍🌾 Farming Recommendation
+                    </h3>
+
+                    <p id="adviceText">
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Footer -->
+        <div class="footer">
+
+            © 2026 AgroFarm — Growing Together,
+            Feeding the Future 🌱
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+
+        /*
+         * ==========================================
+         * CROP WEATHER DATABASE
+         * ==========================================
+         *
+         * These are example/general agricultural
+         * recommendations, not live weather forecasts.
+         *
+         * You can expand this database with more crops.
+         */
+
+        const cropData = {
+
+            maize: {
+
+                name: "Maize",
+
+                temperature:
+                    "21°C – 30°C. Warm conditions are ideal for healthy growth.",
+
+                rainfall:
+                    "Approximately 500 – 1,200 mm during the growing season, depending on variety and location.",
+
+                humidity:
+                    "Moderate to high humidity is generally suitable, provided fields have good drainage.",
+
+                sunlight:
+                    "Requires plenty of sunlight, preferably around 6 – 8 hours or more per day.",
+
+                soil:
+                    "Fertile, well-drained loamy soil with good organic matter is preferred.",
+
+                season:
+                    "Generally planted at the beginning of the rainy season. Timing varies across Nigerian regions.",
+
+                states: [
+                    "Kaduna",
+                    "Kano",
+                    "Niger",
+                    "Benue",
+                    "Plateau",
+                    "Kogi",
+                    "Oyo",
+                    "Katsina"
+                ],
+
+                advice:
+                    "Plant when adequate rainfall is expected and soil moisture is sufficient. Avoid waterlogged fields and monitor rainfall closely during flowering and grain development."
+            },
+
+
+            rice: {
+
+                name: "Rice",
+
+                temperature:
+                    "20°C – 35°C, with warm temperatures generally favorable throughout the growing period.",
+
+                rainfall:
+                    "Approximately 1,000 – 2,000 mm of water may be required depending on production system and variety.",
+
+                humidity:
+                    "Moderate to high humidity is generally favorable.",
+
+                sunlight:
+                    "Requires good sunlight for photosynthesis and grain development.",
+
+                soil:
+                    "Clay-loam or loamy soils that can retain moisture are commonly suitable.",
+
+                season:
+                    "Growing periods vary depending on whether the rice is rain-fed, irrigated, or grown in lowland areas.",
+
+                states: [
+                    "Kebbi",
+                    "Ebonyi",
+                    "Niger",
+                    "Kano",
+                    "Kaduna",
+                    "Benue",
+                    "Kogi",
+                    "Taraba"
+                ],
+
+                advice:
+                    "Rice performs well where water availability can be managed. Ensure proper field preparation, drainage where necessary, and adequate water during critical growth stages."
+            },
+
+
+            cassava: {
+
+                name: "Cassava",
+
+                temperature:
+                    "25°C – 30°C is generally favorable for vigorous growth.",
+
+                rainfall:
+                    "Approximately 1,000 – 1,500 mm annually, although cassava can tolerate some dry periods.",
+
+                humidity:
+                    "Moderate to high humidity is generally suitable.",
+
+                sunlight:
+                    "Requires good sunlight and performs best under warm tropical conditions.",
+
+                soil:
+                    "Well-drained sandy-loam or loamy soils are generally suitable.",
+
+                season:
+                    "Can be planted during favorable periods of the rainy season, depending on location and available moisture.",
+
+                states: [
+                    "Benue",
+                    "Kogi",
+                    "Ogun",
+                    "Oyo",
+                    "Delta",
+                    "Edo",
+                    "Ondo",
+                    "Anambra"
+                ],
+
+                advice:
+                    "Choose well-drained land and plant healthy stem cuttings when soil moisture is adequate. Avoid prolonged waterlogging."
+            },
+
+
+            tomato: {
+
+                name: "Tomato",
+
+                temperature:
+                    "18°C – 27°C is generally favorable for tomato production.",
+
+                rainfall:
+                    "Moderate water availability is required. Excessive rainfall can increase disease pressure.",
+
+                humidity:
+                    "Moderate humidity is preferable. High humidity combined with wet foliage can encourage disease.",
+
+                sunlight:
+                    "Requires strong sunlight, generally around 6 – 8 hours or more daily.",
+
+                soil:
+                    "Well-drained fertile loamy soil with good organic matter is preferred.",
+
+                season:
+                    "Production timing depends heavily on region, irrigation availability, and local rainfall patterns.",
+
+                states: [
+                    "Kano",
+                    "Kaduna",
+                    "Plateau",
+                    "Katsina",
+                    "Bauchi",
+                    "Jigawa",
+                    "Benue",
+                    "Nasarawa"
+                ],
+
+                advice:
+                    "Good drainage and careful water management are important. Avoid excessive leaf wetness and monitor the crop regularly for pests and diseases."
+            },
+
+
+            yam: {
+
+                name: "Yam",
+
+                temperature:
+                    "25°C – 30°C is generally favorable for yam growth.",
+
+                rainfall:
+                    "Approximately 1,000 – 1,500 mm of well-distributed rainfall is generally suitable.",
+
+                humidity:
+                    "Moderate to high humidity can support growth when drainage is adequate.",
+
+                sunlight:
+                    "Good sunlight is required for strong vine and tuber development.",
+
+                soil:
+                    "Deep, fertile, loose, well-drained sandy-loam soil is commonly preferred.",
+
+                season:
+                    "Usually planted around the beginning of the rainy season, with timing varying by region.",
+
+                states: [
+                    "Benue",
+                    "Niger",
+                    "Kogi",
+                    "Oyo",
+                    "Kwara",
+                    "Nasarawa",
+                    "Kaduna",
+                    "Ekiti"
+                ],
+
+                advice:
+                    "Use fertile, well-drained land and plant healthy seed yams or setts when sufficient soil moisture is available."
+            },
+
+
+            groundnut: {
+
+                name: "Groundnut",
+
+                temperature:
+                    "25°C – 30°C is generally favorable for good growth.",
+
+                rainfall:
+                    "Approximately 500 – 1,000 mm during the growing season is commonly suitable.",
+
+                humidity:
+                    "Moderate humidity with good airflow is beneficial.",
+
+                sunlight:
+                    "Requires plenty of sunlight for good pod development.",
+
+                soil:
+                    "Loose, well-drained sandy-loam soil is especially suitable because pods develop underground.",
+
+                season:
+                    "Usually grown during the rainy season, with planting dates depending on local rainfall patterns.",
+
+                states: [
+                    "Kano",
+                    "Katsina",
+                    "Kaduna",
+                    "Jigawa",
+                    "Sokoto",
+                    "Zamfara",
+                    "Bauchi",
+                    "Kebbi"
+                ],
+
+                advice:
+                    "Choose loose, well-drained soil and avoid waterlogging. Adequate moisture is particularly important during flowering and pod formation."
+            },
+
+
+            soybean: {
+
+                name: "Soybean",
+
+                temperature:
+                    "20°C – 30°C is generally favorable.",
+
+                rainfall:
+                    "Approximately 500 – 900 mm of well-distributed rainfall during the growing period is commonly suitable.",
+
+                humidity:
+                    "Moderate humidity is suitable when excessive moisture is avoided.",
+
+                sunlight:
+                    "Good sunlight is important for healthy growth and seed development.",
+
+                soil:
+                    "Well-drained fertile loam or sandy-loam soil is generally suitable.",
+
+                season:
+                    "Usually cultivated during the rainy season, with local planting dates depending on rainfall onset.",
+
+                states: [
+                    "Benue",
+                    "Kaduna",
+                    "Niger",
+                    "Kogi",
+                    "Nasarawa",
+                    "Taraba",
+                    "Plateau",
+                    "Kwara"
+                ],
+
+                advice:
+                    "Plant with the onset of dependable rainfall, maintain good weed control, and avoid poorly drained fields."
+            }
+
+        };
+
+
+        /*
+         * ==========================================
+         * SEARCH CROP
+         * ==========================================
+         */
+
+        function searchCrop() {
+
+            const input =
+                document
+                .getElementById("cropSearch")
+                .value
+                .trim()
+                .toLowerCase();
+
+
+            const results =
+                document.getElementById("results");
+
+            const error =
+                document.getElementById("errorMessage");
+
+
+            // Empty search
+            if (input === "") {
+
+                results.classList.remove("show");
+
+                error.textContent =
+                    "Please enter a crop name to search.";
+
+                error.classList.add("show");
+
+                return;
+            }
+
+
+            /*
+             * Look for crop in database.
+             */
+            const crop =
+                cropData[input];
+
+
+            // Crop not found
+            if (!crop) {
+
+                results.classList.remove("show");
+
+                error.textContent =
+                    "Crop information not found. Try Maize, Rice, Cassava, Tomato, Yam, Groundnut, or Soybean.";
+
+                error.classList.add("show");
+
+                return;
+            }
+
+
+            // Hide error
+            error.classList.remove("show");
+
+
+            /*
+             * Insert crop information
+             */
+
+            document
+                .getElementById("cropName")
+                .textContent = crop.name;
+
+
+            document
+                .getElementById("temperature")
+                .textContent = crop.temperature;
+
+
+            document
+                .getElementById("rainfall")
+                .textContent = crop.rainfall;
+
+
+            document
+                .getElementById("humidity")
+                .textContent = crop.humidity;
+
+
+            document
+                .getElementById("sunlight")
+                .textContent = crop.sunlight;
+
+
+            document
+                .getElementById("soil")
+                .textContent = crop.soil;
+
+
+            document
+                .getElementById("season")
+                .textContent = crop.season;
+
+
+            document
+                .getElementById("adviceText")
+                .textContent = crop.advice;
+
+
+            /*
+             * Generate state tags
+             */
+
+            const statesContainer =
+                document.getElementById("states");
+
+
+            statesContainer.innerHTML = "";
+
+
+            crop.states.forEach(function(state) {
+
+                const stateElement =
+                    document.createElement("span");
+
+
+                stateElement.className = "state";
+
+                stateElement.textContent = state;
+
+                statesContainer.appendChild(
+                    stateElement
+                );
+
+            });
+
+
+            /*
+             * Display results
+             */
+
+            results.classList.add("show");
+
+
+            /*
+             * Scroll smoothly to results
+             */
+
+            setTimeout(function() {
+
+                results.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+
+            }, 100);
+
+        }
+
+
+        /*
+         * ==========================================
+         * ENTER KEY SEARCH
+         * ==========================================
+         */
+
+        document
+            .getElementById("cropSearch")
+            .addEventListener(
+                "keypress",
+                function(event) {
+
+                    if (event.key === "Enter") {
+
+                        searchCrop();
+
+                    }
+
+                }
+            );
+
+    </script>
+
+</body>
