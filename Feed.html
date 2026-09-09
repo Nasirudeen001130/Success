@@ -38,3 +38,1112 @@
             </nav>
 
     </header>
+     <!-- =========================
+         ANIMAL FEEDS
+    ========================== -->
+
+    <section id="feeds">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Animal Feed & Farm Nutrition
+            </h2>
+
+            <p class="section-description">
+                Feed your livestock with quality nutrition products.
+            </p>
+
+            <div class="products-grid">
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80"
+                        alt="Animal feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Broiler Starter Feed</h3>
+
+                        <p class="product-description">
+                            Feed formulated for young broiler chickens.
+                        </p>
+
+                        <div class="price">
+                            ₦25,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦23,000 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Broiler Starter Feed 25kg', 25000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80"
+                        alt="Cattle feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Cattle Feed</h3>
+
+                        <p class="product-description">
+                            Nutrition feed suitable for cattle growth and
+                            maintenance.
+                        </p>
+
+                        <div class="price">
+                            ₦18,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦16,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Cattle Feed 25kg', 18000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80"
+                        alt="Livestock feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Goat & Sheep Feed</h3>
+
+                        <p class="product-description">
+                            Feed formulated to support sheep and goat
+                            production.
+                        </p>
+
+                        <div class="price">
+                            ₦17,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦15,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Goat and Sheep Feed 25kg', 17000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=800&q=80"
+                        alt="Pig feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Pig Feed</h3>
+
+                        <p class="product-description">
+                            Balanced feed for pig growth and commercial
+                            production.
+                        </p>
+
+                        <div class="price">
+                            ₦19,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦17,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Pig Feed 25kg', 19000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+ <!-- =========================
+         CART
+    ========================== -->
+
+    <section id="cartSection">
+
+        <div class="container">
+
+            <div id="cartPanel" class="cart-panel">
+
+                <h2>
+                    Your Shopping Cart
+                </h2>
+
+                <div id="cartItems"></div>
+
+                <div class="cart-total">
+                    Total:
+                    ₦<span id="cartTotal">0</span>
+                </div>
+
+                <button
+                    class="pay-button"
+                    onclick="openCheckout()"
+                >
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CHECKOUT
+    ========================== -->
+
+    <section id="checkoutPage" class="checkout-page">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Checkout & Payment
+            </h2>
+
+            <p class="section-description">
+                Complete your details and select your preferred payment
+                method.
+            </p>
+
+            <div class="checkout-grid">
+
+                <!-- CUSTOMER DETAILS -->
+
+                <div class="checkout-box">
+
+                    <h3>
+                        Customer Information
+                    </h3>
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="08012345678"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="example@email.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Collection / Delivery Information
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerAddress"
+                            placeholder="Enter collection or delivery details"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="checkout-box">
+
+                    <h3>
+                        Select Payment Method
+                    </h3>
+
+                    <div class="payment-methods">
+
+                        <button
+                            class="payment-method active"
+                            onclick="selectPayment('card', this)"
+                        >
+                            💳 Card
+                        </button>
+
+                        <button
+                            class="payment-method"
+                            onclick="selectPayment('opay', this)"
+                        >
+                            📱 OPay / Bank Transfer
+                        </button>
+
+                    </div>
+
+
+                    <!-- CARD PAYMENT -->
+
+                    <div
+                        id="cardPayment"
+                        class="payment-section active"
+                    >
+
+                        <div class="form-group">
+
+                            <label>
+                                Card Number
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="XXXX XXXX XXXX XXXX"
+                                maxlength="19"
+                            >
+
+                        </div>
+
+                        <div
+                            style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"
+                        >
+
+                            <div class="form-group">
+
+                                <label>
+                                    Expiry Date
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="MM/YY"
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="password"
+                                    placeholder="CVV"
+                                    maxlength="4"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <p style="font-size:0.85rem;color:#777;">
+                            Demo card-payment interface. Connect this form
+                            to your payment gateway before accepting real
+                            payments.
+                        </p>
+
+                    </div>
+
+
+                    <!-- OPAY / BANK -->
+
+                    <div
+                        id="opayPayment"
+                        class="payment-section"
+                    >
+
+                        <div class="bank-details" style="display:block;">
+
+                            <strong>
+                                OPay / Bank Transfer Details
+                            </strong>
+
+                            <p>
+                                <strong>Bank:</strong>
+                                Lotus Bank
+                            </p>
+
+                            <p>
+                                <strong>Account Number:</strong>
+                                8050452141
+                            </p>
+
+                            <p>
+                                <strong>Account Name:</strong>
+                                Deen Agriculture
+                            </p>
+
+                            <hr style="margin:12px 0;">
+
+                            <p>
+                                Transfer the exact order amount and keep
+                                your transaction receipt for verification.
+                            </p>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Reference / Transaction ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="paymentReference"
+                                placeholder="Enter your transaction reference"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="pay-button"
+                        onclick="completePayment()"
+                    >
+                        Confirm Payment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECEIPT
+    ========================== -->
+
+    <section id="receiptPage" class="receipt-page">
+
+        <div class="container">
+
+            <div class="receipt">
+
+                <div class="receipt-header">
+
+                    <h2>
+                        DEEN AGRICULTURE
+                    </h2>
+
+                    <p>
+                        Farm Produce Purchase Receipt
+                    </p>
+
+                    <p>
+                        Proof of Collection
+                    </p>
+
+                </div>
+
+
+                <div class="receipt-info">
+
+                    <div>
+                        <strong>Receipt No:</strong>
+                        <span id="receiptNumber"></span>
+                    </div>
+
+                    <div>
+                        <strong>Date:</strong>
+                        <span id="receiptDate"></span>
+                    </div>
+
+                    <div>
+                        <strong>Customer:</strong>
+                        <span id="receiptCustomer"></span>
+                    </div>
+
+                    <div>
+                        <strong>Phone:</strong>
+                        <span id="receiptPhone"></span>
+                    </div>
+
+                </div>
+
+
+                <table class="receipt-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Farm Product</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="receiptItems">
+                    </tbody>
+
+                </table>
+
+
+                <div class="receipt-total">
+
+                    Total Paid:
+                    ₦<span id="receiptTotal"></span>
+
+                </div>
+
+
+                <p style="margin-top:25px;">
+
+                    <strong>Payment Method:</strong>
+                    <span id="receiptPayment"></span>
+
+                </p>
+
+
+                <p style="margin-top:10px;">
+
+                    This receipt should be presented when collecting the
+                    purchased farm produce.
+
+                </p>
+
+
+                <button
+                    class="print-button"
+                    onclick="window.print()"
+                >
+                    🖨 Print Receipt
+                </button>
+
+
+                <button
+                    class="print-button"
+                    onclick="showThankYou()"
+                >
+                    Continue
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         THANK YOU PAGE
+    ========================== -->
+
+    <section id="thankYou" class="thank-you">
+
+        <div class="container">
+
+            <div class="thank-you-icon">
+                ✅
+            </div>
+
+            <h1>
+                Thank You for Buying From Us!
+            </h1>
+
+            <p>
+                Your farm-product order has been received. Please keep your
+                receipt as proof of purchase and present it when collecting
+                your livestock, animal feed or other purchased farm produce.
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="startShoppingAgain()"
+            >
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            <strong>Deen Agriculture</strong>
+        </p>
+
+        <p>
+            Livestock • Animal Feed • Farm Produce
+        </p>
+
+        <p>
+            © 2026 Deen Agriculture. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* ==================================
+       SHOPPING CART
+    ================================== */
+
+    let cart = [];
+
+
+    function addToCart(name, price) {
+
+        const existingProduct = cart.find(
+            item => item.name === name
+        );
+
+        if (existingProduct) {
+
+            existingProduct.quantity++;
+
+        } else {
+
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+
+        }
+
+        updateCart();
+
+        alert(name + " added to cart.");
+
+    }
+
+
+    function updateCart() {
+
+        const cartCount = document.getElementById("cartCount");
+
+        const cartItems = document.getElementById("cartItems");
+
+        const cartTotal = document.getElementById("cartTotal");
+
+        let totalQuantity = 0;
+
+        let totalPrice = 0;
+
+        cartItems.innerHTML = "";
+
+
+        cart.forEach((item, index) => {
+
+            totalQuantity += item.quantity;
+
+            totalPrice += item.price * item.quantity;
+
+
+            const itemElement = document.createElement("div");
+
+            itemElement.className = "cart-item";
+
+            itemElement.innerHTML = `
+
+                <div>
+                    <strong>${item.name}</strong>
+
+                    <br>
+
+                    ₦${item.price.toLocaleString()}
+                    × ${item.quantity}
+                </div>
+
+                <button
+                    onclick="removeFromCart(${index})"
+                >
+                    Remove
+                </button>
+
+            `;
+
+            cartItems.appendChild(itemElement);
+
+        });
+
+
+        cartCount.textContent = totalQuantity;
+
+        cartTotal.textContent = totalPrice.toLocaleString();
+
+    }
+
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+        showCart();
+
+    }
+
+
+    function showCart() {
+
+        const panel = document.getElementById("cartPanel");
+
+        panel.style.display = "block";
+
+        panel.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* ==================================
+       PRODUCT SEARCH
+    ================================== */
+
+    function searchProducts() {
+
+        const searchValue =
+            document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+
+        let found = 0;
+
+
+        products.forEach(product => {
+
+            const productName =
+                product.dataset.name || "";
+
+
+            const productText =
+                product.innerText.toLowerCase();
+
+
+            if (
+                productName.includes(searchValue) ||
+                productText.includes(searchValue)
+            ) {
+
+                product.style.display = "";
+
+                found++;
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+
+        document.getElementById("noResults").style.display =
+            found === 0 ? "block" : "none";
+
+    }
+
+
+    /* ==================================
+       CHECKOUT
+    ================================== */
+
+    function openCheckout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+
+        document.getElementById("checkoutPage").style.display =
+            "block";
+
+
+        document
+            .getElementById("checkoutPage")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       PAYMENT METHOD
+    ================================== */
+
+    let selectedPayment = "card";
+
+
+    function selectPayment(method, button) {
+
+        selectedPayment = method;
+
+
+        document
+            .querySelectorAll(".payment-method")
+            .forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+
+        button.classList.add("active");
+
+
+        document
+            .querySelectorAll(".payment-section")
+            .forEach(section => {
+                section.classList.remove("active");
+            });
+
+
+        if (method === "card") {
+
+            document
+                .getElementById("cardPayment")
+                .classList.add("active");
+
+        } else {
+
+            document
+                .getElementById("opayPayment")
+                .classList.add("active");
+
+        }
+
+    }
+
+
+    /* ==================================
+       COMPLETE PAYMENT
+    ================================== */
+
+    function completePayment() {
+
+        const customerName =
+            document
+            .getElementById("customerName")
+            .value
+            .trim();
+
+
+        const customerPhone =
+            document
+            .getElementById("customerPhone")
+            .value
+            .trim();
+
+
+        if (!customerName || !customerPhone) {
+
+            alert(
+                "Please enter your name and phone number."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            selectedPayment === "opay" &&
+            !document
+            .getElementById("paymentReference")
+            .value
+            .trim()
+        ) {
+
+            alert(
+                "Please enter your OPay/bank transfer reference."
+            );
+
+            return;
+
+        }
+
+
+        generateReceipt();
+
+    }
+
+
+    /* ==================================
+       GENERATE RECEIPT
+    ================================== */
+
+    function generateReceipt() {
+
+        const customerName =
+            document
+            .getElementById("customerName")
+            .value;
+
+
+        const customerPhone =
+            document
+            .getElementById("customerPhone")
+            .value;
+
+
+        const receiptNumber =
+            "DA-" +
+            Date.now()
+            .toString()
+            .slice(-8);
+
+
+        const currentDate =
+            new Date().toLocaleString();
+
+
+        let total = 0;
+
+
+        const receiptItems =
+            document.getElementById("receiptItems");
+
+
+        receiptItems.innerHTML = "";
+
+
+        cart.forEach(item => {
+
+            const itemTotal =
+                item.price * item.quantity;
+
+
+            total += itemTotal;
+
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>${item.name}</td>
+
+                <td>${item.quantity}</td>
+
+                <td>
+                    ₦${itemTotal.toLocaleString()}
+                </td>
+
+            `;
+
+
+            receiptItems.appendChild(row);
+
+        });
+
+
+        document.getElementById("receiptNumber")
+            .textContent = receiptNumber;
+
+
+        document.getElementById("receiptDate")
+            .textContent = currentDate;
+
+
+        document.getElementById("receiptCustomer")
+            .textContent = customerName;
+
+
+        document.getElementById("receiptPhone")
+            .textContent = customerPhone;
+
+
+        document.getElementById("receiptTotal")
+            .textContent = total.toLocaleString();
+
+
+        document.getElementById("receiptPayment")
+            .textContent =
+                selectedPayment === "card"
+                ? "Card Payment"
+                : "OPay / Bank Transfer";
+
+
+        document.getElementById("checkoutPage")
+            .style.display = "none";
+
+
+        document.getElementById("receiptPage")
+            .style.display = "block";
+
+
+        document.getElementById("receiptPage")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       THANK YOU
+    ================================== */
+
+    function showThankYou() {
+
+        document.getElementById("receiptPage")
+            .style.display = "none";
+
+
+        document.getElementById("thankYou")
+            .style.display = "block";
+
+
+        document.getElementById("thankYou")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       START SHOPPING AGAIN
+    ================================== */
+
+    function startShoppingAgain() {
+
+        document.getElementById("thankYou")
+            .style.display = "none";
+
+
+        document.getElementById("cartPanel")
+            .style.display = "none";
+
+
+        document.getElementById("checkoutPage")
+            .style.display = "none";
+
+
+        document.getElementById("marketplace")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       INITIAL CART UPDATE
+    ================================== */
+
+    updateCart();
+
+</script>
+
+</body>
+</html>
