@@ -1,40 +1,2297 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AgroFarm - Your trusted agribusiness marketplace">
-    <title>AgroFarm | Agribusiness Marketplace</title>
 
-    <link rel="stylesheet" href="Marketplace.css">
+    <title>Deen Agriculture Marketplace</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <style>
+        /* =========================
+           GENERAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7f4;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            background: #146b32;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+
+        .nav {
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: #f4c542;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            color: #f4c542;
+        }
+
+        .cart-button {
+            border: none;
+            background: #f4c542;
+            color: #222;
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            background:
+                linear-gradient(rgba(0, 70, 25, 0.75), rgba(0, 70, 25, 0.75)),
+                url("https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+
+            min-height: 480px;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 5vw, 4rem);
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            border: none;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .btn-primary {
+            background: #f4c542;
+            color: #222;
+        }
+
+        .btn-primary:hover {
+            background: #ffd95c;
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #146b32;
+        }
+
+        .btn-secondary:hover {
+            background: #eee;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 12px;
+            color: #146b32;
+            font-size: 2rem;
+        }
+
+        .section-description {
+            max-width: 800px;
+            margin: 0 auto 35px;
+            text-align: center;
+            color: #555;
+        }
+
+        /* =========================
+           MARKETPLACE DESCRIPTION
+        ========================== */
+
+        .market-info {
+            background: white;
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+        }
+
+        .market-info h3 {
+            color: #146b32;
+            margin-bottom: 10px;
+        }
+
+        .market-info p {
+            margin-bottom: 15px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: #eef7ef;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .feature h4 {
+            color: #146b32;
+            margin-bottom: 5px;
+        }
+
+        /* =========================
+           SEARCH
+        ========================== */
+
+        .search-area {
+            background: #eaf4eb;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #146b32;
+        }
+
+        .search-box button {
+            background: #146b32;
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 8px;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================== */
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 210px;
+            object-fit: cover;
+        }
+
+        .product-content {
+            padding: 18px;
+        }
+
+        .category {
+            display: inline-block;
+            background: #e7f4e8;
+            color: #146b32;
+            padding: 4px 9px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            margin-bottom: 8px;
+        }
+
+        .product-content h3 {
+            margin-bottom: 7px;
+        }
+
+        .product-description {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .price {
+            color: #146b32;
+            font-size: 1.15rem;
+            font-weight: bold;
+        }
+
+        .wholesale {
+            color: #777;
+            font-size: 0.85rem;
+            margin: 3px 0 15px;
+        }
+
+        .add-cart {
+            width: 100%;
+            background: #146b32;
+            color: white;
+            border: none;
+            padding: 11px;
+            border-radius: 7px;
+        }
+
+        .add-cart:hover {
+            background: #0d5426;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #777;
+            padding: 30px;
+            display: none;
+        }
+
+        /* =========================
+           CART
+        ========================== */
+
+        .cart-panel {
+            background: white;
+            border-radius: 14px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            display: none;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item button {
+            background: #c62828;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        /* =========================
+           PAYMENT PAGE
+        ========================== */
+
+        .checkout-page {
+            display: none;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .checkout-box {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+        }
+
+        .checkout-box h3 {
+            color: #146b32;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        .payment-methods {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            border: 1px solid #ccc;
+            padding: 13px;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .payment-method.active {
+            border: 2px solid #146b32;
+            background: #eef7ef;
+        }
+
+        .bank-details {
+            background: #f0f7f1;
+            border-left: 4px solid #146b32;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        .payment-section {
+            display: none;
+        }
+
+        .payment-section.active {
+            display: block;
+        }
+
+        .pay-button {
+            width: 100%;
+            background: #146b32;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* =========================
+           RECEIPT
+        ========================== */
+
+        .receipt-page {
+            display: none;
+        }
+
+        .receipt {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .receipt-header {
+            text-align: center;
+            border-bottom: 2px solid #146b32;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .receipt-header h2 {
+            color: #146b32;
+        }
+
+        .receipt-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .receipt-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .receipt-table th,
+        .receipt-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .receipt-total {
+            text-align: right;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .print-button {
+            display: block;
+            margin: 25px auto 0;
+            background: #146b32;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+        }
+
+        /* =========================
+           THANK YOU
+        ========================== */
+
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .thank-you-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .thank-you h1 {
+            color: #146b32;
+            margin-bottom: 12px;
+        }
+
+        .thank-you p {
+            max-width: 600px;
+            margin: 0 auto 25px;
+            color: #666;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #103f21;
+            color: white;
+            padding: 35px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 1000px) {
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+
+            .nav {
+                flex-wrap: wrap;
+                padding: 12px 0;
+            }
+
+            nav {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .features,
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                padding: 12px;
+            }
+
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .receipt-info {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 420px;
+            }
+        }
+
+        /* =========================
+           PRINT RECEIPT
+        ========================== */
+
+        @media print {
+
+            body * {
+                visibility: hidden;
+            }
+
+            .receipt,
+            .receipt * {
+                visibility: visible;
+            }
+
+            .receipt {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .print-button {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
-        <div class="container nav-container">
+<!-- =========================
+     HEADER
+========================== -->
 
-            <a href="#" class="logo">
-                <span class="logo-icon">🌱</span>
-                Agro<span>Farm</span>
-            </a>
+<header>
+    <div class="container nav">
 
-            <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="Marketplace.html">Marketplace</a>
-                <a href="Feed.html">Feeds</a>
-                <a href="Livestock.html">Livestock</a>
-                <a href="Weather.html">Weather</a>
-                <a href="Contact.html">Contact</a>
-            </nav>
-            
-    </header>
+        <div class="logo">
+            Deen <span>Farm</span>
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="#marketplace">Marketplace</a>
+            <a href="#feeds">Animal Feed</a>
+            <a href="#about">About</a>
+
+            <button class="cart-button" onclick="showCart()">
+                🛒 Cart (<span id="cartCount">0</span>)
+            </button>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- =========================
+     HOME
+========================== -->
+
+<main id="home">
+
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <h1>
+                Quality Livestock & Animal Feed Marketplace
+            </h1>
+
+            <p>
+                Buy healthy farm animals and quality animal feed directly
+                from Deen Agriculture. We provide individual and wholesale
+                farm products for farmers, businesses, families and livestock
+                producers.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#marketplace" class="btn btn-primary">
+                    Shop Livestock
+                </a>
+
+                <a href="#feeds" class="btn btn-secondary">
+                    Shop Animal Feed
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MARKETPLACE DESCRIPTION
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Deen Agriculture Marketplace
+            </h2>
+
+            <p class="section-description">
+                Your trusted marketplace for farm animals, animal feed and
+                selected agricultural produce.
+            </p>
+
+            <div class="market-info">
+
+                <h3>
+                    About Our Farm Marketplace
+                </h3>
+
+                <p>
+                    Deen Agriculture provides a convenient marketplace where
+                    customers can purchase livestock and animal feeds for
+                    farming, breeding, food production and commercial
+                    agricultural activities.
+                </p>
+
+                <p>
+                    Our livestock selection includes cattle, goats, sheep,
+                    pigs, chickens, turkeys, ducks and rabbits. We also
+                    provide animal feeds such as poultry feed, cattle feed,
+                    goat feed, pig feed and other farm nutrition products.
+                </p>
+
+                <p>
+                    Customers can search for a product, view its individual
+                    or wholesale price, add products to their cart and
+                    proceed to checkout.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <h4>🐄 Healthy Livestock</h4>
+                        <p>
+                            Quality farm animals suitable for farming,
+                            breeding and food production.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>🌾 Quality Feed</h4>
+                        <p>
+                            Animal nutrition products for different types
+                            of livestock.
+                        </p>
+                    </div>
+
+                    <div class="feature">
+                        <h4>🚚 Farm Collection</h4>
+                        <p>
+                            Receive a purchase receipt as proof of your
+                            completed farm-product purchase.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MARKETPLACE
+    ========================== -->
+
+    <section id="marketplace">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Farm Products for Sale
+            </h2>
+
+            <p class="section-description">
+                Search our livestock and animal-feed products below.
+            </p>
+
+            <div class="search-area">
+
+                <div class="search-box">
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search for cattle, goat, chicken, feed..."
+                        onkeyup="searchProducts()"
+                    >
+
+                    <button onclick="searchProducts()">
+                        Search
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="productsGrid" class="products-grid">
+
+                <!-- CATTLE -->
+
+                <article class="product-card" data-name="cattle cow bull">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=800&q=80"
+                        alt="Cattle"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Livestock</span>
+
+                        <h3>Cattle / Cow</h3>
+
+                        <p class="product-description">
+                            Healthy cattle suitable for farming, breeding
+                            and agricultural production.
+                        </p>
+
+                        <div class="price">
+                            ₦850,000 per animal
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦800,000 each for 5+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Cattle / Cow', 850000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- GOAT -->
+
+                <article class="product-card" data-name="goat">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1524024973431-2ad916746881?auto=format&fit=crop&w=800&q=80"
+                        alt="Goat"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Livestock</span>
+
+                        <h3>Goat</h3>
+
+                        <p class="product-description">
+                            Healthy goats suitable for meat production,
+                            breeding and farm rearing.
+                        </p>
+
+                        <div class="price">
+                            ₦120,000 per goat
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦110,000 each for 10+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Goat', 120000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SHEEP -->
+
+                <article class="product-card" data-name="sheep ram lamb">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1484557985045-edf25e08da73?auto=format&fit=crop&w=800&q=80"
+                        alt="Sheep"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Livestock</span>
+
+                        <h3>Sheep / Ram</h3>
+
+                        <p class="product-description">
+                            Farm-raised sheep suitable for breeding and
+                            meat production.
+                        </p>
+
+                        <div class="price">
+                            ₦150,000 per animal
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦140,000 each for 10+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Sheep / Ram', 150000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- CHICKEN -->
+
+                <article class="product-card" data-name="chicken hen broiler poultry">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&w=800&q=80"
+                        alt="Chicken"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Poultry</span>
+
+                        <h3>Chicken / Broiler</h3>
+
+                        <p class="product-description">
+                            Farm-raised poultry suitable for meat production
+                            and farming.
+                        </p>
+
+                        <div class="price">
+                            ₦15,000 per bird
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦13,500 each for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Chicken / Broiler', 15000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- TURKEY -->
+
+                <article class="product-card" data-name="turkey">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=800&q=80"
+                        alt="Turkey"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Poultry</span>
+
+                        <h3>Turkey</h3>
+
+                        <p class="product-description">
+                            Healthy farm turkey suitable for rearing and
+                            meat production.
+                        </p>
+
+                        <div class="price">
+                            ₦45,000 per bird
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦42,000 each for 10+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Turkey', 45000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DUCK -->
+
+                <article class="product-card" data-name="duck">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1555852095-64e7428c5f70?auto=format&fit=crop&w=800&q=80"
+                        alt="Duck"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Poultry</span>
+
+                        <h3>Duck</h3>
+
+                        <p class="product-description">
+                            Farm-raised duck for poultry production and
+                            breeding.
+                        </p>
+
+                        <div class="price">
+                            ₦18,000 per bird
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦16,000 each for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Duck', 18000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- PIG -->
+
+                <article class="product-card" data-name="pig pork swine">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&w=800&q=80"
+                        alt="Pig"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Livestock</span>
+
+                        <h3>Pig</h3>
+
+                        <p class="product-description">
+                            Healthy pigs suitable for commercial livestock
+                            production.
+                        </p>
+
+                        <div class="price">
+                            ₦200,000 per pig
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦185,000 each for 10+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Pig', 200000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- RABBIT -->
+
+                <article class="product-card" data-name="rabbit">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80"
+                        alt="Rabbit"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Livestock</span>
+
+                        <h3>Rabbit</h3>
+
+                        <p class="product-description">
+                            Farm-raised rabbits suitable for meat production
+                            and breeding.
+                        </p>
+
+                        <div class="price">
+                            ₦20,000 per rabbit
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦18,000 each for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Rabbit', 20000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div id="noResults" class="no-results">
+                No matching farm product was found.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ANIMAL FEEDS
+    ========================== -->
+
+    <section id="feeds">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Animal Feed & Farm Nutrition
+            </h2>
+
+            <p class="section-description">
+                Feed your livestock with quality nutrition products.
+            </p>
+
+            <div class="products-grid">
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=800&q=80"
+                        alt="Animal feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Broiler Starter Feed</h3>
+
+                        <p class="product-description">
+                            Feed formulated for young broiler chickens.
+                        </p>
+
+                        <div class="price">
+                            ₦25,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦23,000 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Broiler Starter Feed 25kg', 25000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80"
+                        alt="Cattle feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Cattle Feed</h3>
+
+                        <p class="product-description">
+                            Nutrition feed suitable for cattle growth and
+                            maintenance.
+                        </p>
+
+                        <div class="price">
+                            ₦18,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦16,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Cattle Feed 25kg', 18000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80"
+                        alt="Livestock feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Goat & Sheep Feed</h3>
+
+                        <p class="product-description">
+                            Feed formulated to support sheep and goat
+                            production.
+                        </p>
+
+                        <div class="price">
+                            ₦17,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦15,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Goat and Sheep Feed 25kg', 17000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product-card">
+
+                    <img
+                        class="product-image"
+                        src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=800&q=80"
+                        alt="Pig feed"
+                    >
+
+                    <div class="product-content">
+
+                        <span class="category">Animal Feed</span>
+
+                        <h3>Pig Feed</h3>
+
+                        <p class="product-description">
+                            Balanced feed for pig growth and commercial
+                            production.
+                        </p>
+
+                        <div class="price">
+                            ₦19,000 / 25kg
+                        </div>
+
+                        <div class="wholesale">
+                            Wholesale: ₦17,500 per bag for 20+
+                        </div>
+
+                        <button
+                            class="add-cart"
+                            onclick="addToCart('Pig Feed 25kg', 19000)"
+                        >
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CART
+    ========================== -->
+
+    <section id="cartSection">
+
+        <div class="container">
+
+            <div id="cartPanel" class="cart-panel">
+
+                <h2>
+                    Your Shopping Cart
+                </h2>
+
+                <div id="cartItems"></div>
+
+                <div class="cart-total">
+                    Total:
+                    ₦<span id="cartTotal">0</span>
+                </div>
+
+                <button
+                    class="pay-button"
+                    onclick="openCheckout()"
+                >
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CHECKOUT
+    ========================== -->
+
+    <section id="checkoutPage" class="checkout-page">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Checkout & Payment
+            </h2>
+
+            <p class="section-description">
+                Complete your details and select your preferred payment
+                method.
+            </p>
+
+            <div class="checkout-grid">
+
+                <!-- CUSTOMER DETAILS -->
+
+                <div class="checkout-box">
+
+                    <h3>
+                        Customer Information
+                    </h3>
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerName"
+                            placeholder="Enter your full name"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="customerPhone"
+                            placeholder="08012345678"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="customerEmail"
+                            placeholder="example@email.com"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Collection / Delivery Information
+                        </label>
+
+                        <input
+                            type="text"
+                            id="customerAddress"
+                            placeholder="Enter collection or delivery details"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+
+                <div class="checkout-box">
+
+                    <h3>
+                        Select Payment Method
+                    </h3>
+
+                    <div class="payment-methods">
+
+                        <button
+                            class="payment-method active"
+                            onclick="selectPayment('card', this)"
+                        >
+                            💳 Card
+                        </button>
+
+                        <button
+                            class="payment-method"
+                            onclick="selectPayment('opay', this)"
+                        >
+                            📱 OPay / Bank Transfer
+                        </button>
+
+                    </div>
+
+
+                    <!-- CARD PAYMENT -->
+
+                    <div
+                        id="cardPayment"
+                        class="payment-section active"
+                    >
+
+                        <div class="form-group">
+
+                            <label>
+                                Card Number
+                            </label>
+
+                            <input
+                                type="text"
+                                placeholder="XXXX XXXX XXXX XXXX"
+                                maxlength="19"
+                            >
+
+                        </div>
+
+                        <div
+                            style="display:grid;grid-template-columns:1fr 1fr;gap:10px;"
+                        >
+
+                            <div class="form-group">
+
+                                <label>
+                                    Expiry Date
+                                </label>
+
+                                <input
+                                    type="text"
+                                    placeholder="MM/YY"
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <label>
+                                    CVV
+                                </label>
+
+                                <input
+                                    type="password"
+                                    placeholder="CVV"
+                                    maxlength="4"
+                                >
+
+                            </div>
+
+                        </div>
+
+                        <p style="font-size:0.85rem;color:#777;">
+                            Demo card-payment interface. Connect this form
+                            to your payment gateway before accepting real
+                            payments.
+                        </p>
+
+                    </div>
+
+
+                    <!-- OPAY / BANK -->
+
+                    <div
+                        id="opayPayment"
+                        class="payment-section"
+                    >
+
+                        <div class="bank-details" style="display:block;">
+
+                            <strong>
+                                OPay / Bank Transfer Details
+                            </strong>
+
+                            <p>
+                                <strong>Bank:</strong>
+                                Lotus Bank
+                            </p>
+
+                            <p>
+                                <strong>Account Number:</strong>
+                                8050452141
+                            </p>
+
+                            <p>
+                                <strong>Account Name:</strong>
+                                Deen Agriculture
+                            </p>
+
+                            <hr style="margin:12px 0;">
+
+                            <p>
+                                Transfer the exact order amount and keep
+                                your transaction receipt for verification.
+                            </p>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+                                Payment Reference / Transaction ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="paymentReference"
+                                placeholder="Enter your transaction reference"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="pay-button"
+                        onclick="completePayment()"
+                    >
+                        Confirm Payment
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECEIPT
+    ========================== -->
+
+    <section id="receiptPage" class="receipt-page">
+
+        <div class="container">
+
+            <div class="receipt">
+
+                <div class="receipt-header">
+
+                    <h2>
+                        DEEN AGRICULTURE
+                    </h2>
+
+                    <p>
+                        Farm Produce Purchase Receipt
+                    </p>
+
+                    <p>
+                        Proof of Collection
+                    </p>
+
+                </div>
+
+
+                <div class="receipt-info">
+
+                    <div>
+                        <strong>Receipt No:</strong>
+                        <span id="receiptNumber"></span>
+                    </div>
+
+                    <div>
+                        <strong>Date:</strong>
+                        <span id="receiptDate"></span>
+                    </div>
+
+                    <div>
+                        <strong>Customer:</strong>
+                        <span id="receiptCustomer"></span>
+                    </div>
+
+                    <div>
+                        <strong>Phone:</strong>
+                        <span id="receiptPhone"></span>
+                    </div>
+
+                </div>
+
+
+                <table class="receipt-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Farm Product</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="receiptItems">
+                    </tbody>
+
+                </table>
+
+
+                <div class="receipt-total">
+
+                    Total Paid:
+                    ₦<span id="receiptTotal"></span>
+
+                </div>
+
+
+                <p style="margin-top:25px;">
+
+                    <strong>Payment Method:</strong>
+                    <span id="receiptPayment"></span>
+
+                </p>
+
+
+                <p style="margin-top:10px;">
+
+                    This receipt should be presented when collecting the
+                    purchased farm produce.
+
+                </p>
+
+
+                <button
+                    class="print-button"
+                    onclick="window.print()"
+                >
+                    🖨 Print Receipt
+                </button>
+
+
+                <button
+                    class="print-button"
+                    onclick="showThankYou()"
+                >
+                    Continue
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         THANK YOU PAGE
+    ========================== -->
+
+    <section id="thankYou" class="thank-you">
+
+        <div class="container">
+
+            <div class="thank-you-icon">
+                ✅
+            </div>
+
+            <h1>
+                Thank You for Buying From Us!
+            </h1>
+
+            <p>
+                Your farm-product order has been received. Please keep your
+                receipt as proof of purchase and present it when collecting
+                your livestock, animal feed or other purchased farm produce.
+            </p>
+
+            <button
+                class="btn btn-primary"
+                onclick="startShoppingAgain()"
+            >
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <div class="container">
+
+        <p>
+            <strong>Deen Agriculture</strong>
+        </p>
+
+        <p>
+            Livestock • Animal Feed • Farm Produce
+        </p>
+
+        <p>
+            © 2026 Deen Agriculture. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+    /* ==================================
+       SHOPPING CART
+    ================================== */
+
+    let cart = [];
+
+
+    function addToCart(name, price) {
+
+        const existingProduct = cart.find(
+            item => item.name === name
+        );
+
+        if (existingProduct) {
+
+            existingProduct.quantity++;
+
+        } else {
+
+            cart.push({
+                name: name,
+                price: price,
+                quantity: 1
+            });
+
+        }
+
+        updateCart();
+
+        alert(name + " added to cart.");
+
+    }
+
+
+    function updateCart() {
+
+        const cartCount = document.getElementById("cartCount");
+
+        const cartItems = document.getElementById("cartItems");
+
+        const cartTotal = document.getElementById("cartTotal");
+
+        let totalQuantity = 0;
+
+        let totalPrice = 0;
+
+        cartItems.innerHTML = "";
+
+
+        cart.forEach((item, index) => {
+
+            totalQuantity += item.quantity;
+
+            totalPrice += item.price * item.quantity;
+
+
+            const itemElement = document.createElement("div");
+
+            itemElement.className = "cart-item";
+
+            itemElement.innerHTML = `
+
+                <div>
+                    <strong>${item.name}</strong>
+
+                    <br>
+
+                    ₦${item.price.toLocaleString()}
+                    × ${item.quantity}
+                </div>
+
+                <button
+                    onclick="removeFromCart(${index})"
+                >
+                    Remove
+                </button>
+
+            `;
+
+            cartItems.appendChild(itemElement);
+
+        });
+
+
+        cartCount.textContent = totalQuantity;
+
+        cartTotal.textContent = totalPrice.toLocaleString();
+
+    }
+
+
+    function removeFromCart(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+        showCart();
+
+    }
+
+
+    function showCart() {
+
+        const panel = document.getElementById("cartPanel");
+
+        panel.style.display = "block";
+
+        panel.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+
+    /* ==================================
+       PRODUCT SEARCH
+    ================================== */
+
+    function searchProducts() {
+
+        const searchValue =
+            document
+            .getElementById("searchInput")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+        const products =
+            document.querySelectorAll(".product-card");
+
+
+        let found = 0;
+
+
+        products.forEach(product => {
+
+            const productName =
+                product.dataset.name || "";
+
+
+            const productText =
+                product.innerText.toLowerCase();
+
+
+            if (
+                productName.includes(searchValue) ||
+                productText.includes(searchValue)
+            ) {
+
+                product.style.display = "";
+
+                found++;
+
+            } else {
+
+                product.style.display = "none";
+
+            }
+
+        });
+
+
+        document.getElementById("noResults").style.display =
+            found === 0 ? "block" : "none";
+
+    }
+
+
+    /* ==================================
+       CHECKOUT
+    ================================== */
+
+    function openCheckout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+
+        document.getElementById("checkoutPage").style.display =
+            "block";
+
+
+        document
+            .getElementById("checkoutPage")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       PAYMENT METHOD
+    ================================== */
+
+    let selectedPayment = "card";
+
+
+    function selectPayment(method, button) {
+
+        selectedPayment = method;
+
+
+        document
+            .querySelectorAll(".payment-method")
+            .forEach(btn => {
+                btn.classList.remove("active");
+            });
+
+
+        button.classList.add("active");
+
+
+        document
+            .querySelectorAll(".payment-section")
+            .forEach(section => {
+                section.classList.remove("active");
+            });
+
+
+        if (method === "card") {
+
+            document
+                .getElementById("cardPayment")
+                .classList.add("active");
+
+        } else {
+
+            document
+                .getElementById("opayPayment")
+                .classList.add("active");
+
+        }
+
+    }
+
+
+    /* ==================================
+       COMPLETE PAYMENT
+    ================================== */
+
+    function completePayment() {
+
+        const customerName =
+            document
+            .getElementById("customerName")
+            .value
+            .trim();
+
+
+        const customerPhone =
+            document
+            .getElementById("customerPhone")
+            .value
+            .trim();
+
+
+        if (!customerName || !customerPhone) {
+
+            alert(
+                "Please enter your name and phone number."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            selectedPayment === "opay" &&
+            !document
+            .getElementById("paymentReference")
+            .value
+            .trim()
+        ) {
+
+            alert(
+                "Please enter your OPay/bank transfer reference."
+            );
+
+            return;
+
+        }
+
+
+        generateReceipt();
+
+    }
+
+
+    /* ==================================
+       GENERATE RECEIPT
+    ================================== */
+
+    function generateReceipt() {
+
+        const customerName =
+            document
+            .getElementById("customerName")
+            .value;
+
+
+        const customerPhone =
+            document
+            .getElementById("customerPhone")
+            .value;
+
+
+        const receiptNumber =
+            "DA-" +
+            Date.now()
+            .toString()
+            .slice(-8);
+
+
+        const currentDate =
+            new Date().toLocaleString();
+
+
+        let total = 0;
+
+
+        const receiptItems =
+            document.getElementById("receiptItems");
+
+
+        receiptItems.innerHTML = "";
+
+
+        cart.forEach(item => {
+
+            const itemTotal =
+                item.price * item.quantity;
+
+
+            total += itemTotal;
+
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>${item.name}</td>
+
+                <td>${item.quantity}</td>
+
+                <td>
+                    ₦${itemTotal.toLocaleString()}
+                </td>
+
+            `;
+
+
+            receiptItems.appendChild(row);
+
+        });
+
+
+        document.getElementById("receiptNumber")
+            .textContent = receiptNumber;
+
+
+        document.getElementById("receiptDate")
+            .textContent = currentDate;
+
+
+        document.getElementById("receiptCustomer")
+            .textContent = customerName;
+
+
+        document.getElementById("receiptPhone")
+            .textContent = customerPhone;
+
+
+        document.getElementById("receiptTotal")
+            .textContent = total.toLocaleString();
+
+
+        document.getElementById("receiptPayment")
+            .textContent =
+                selectedPayment === "card"
+                ? "Card Payment"
+                : "OPay / Bank Transfer";
+
+
+        document.getElementById("checkoutPage")
+            .style.display = "none";
+
+
+        document.getElementById("receiptPage")
+            .style.display = "block";
+
+
+        document.getElementById("receiptPage")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       THANK YOU
+    ================================== */
+
+    function showThankYou() {
+
+        document.getElementById("receiptPage")
+            .style.display = "none";
+
+
+        document.getElementById("thankYou")
+            .style.display = "block";
+
+
+        document.getElementById("thankYou")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       START SHOPPING AGAIN
+    ================================== */
+
+    function startShoppingAgain() {
+
+        document.getElementById("thankYou")
+            .style.display = "none";
+
+
+        document.getElementById("cartPanel")
+            .style.display = "none";
+
+
+        document.getElementById("checkoutPage")
+            .style.display = "none";
+
+
+        document.getElementById("marketplace")
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+
+
+    /* ==================================
+       INITIAL CART UPDATE
+    ================================== */
+
+    updateCart();
+
+</script>
+
+</body>
+</html>
